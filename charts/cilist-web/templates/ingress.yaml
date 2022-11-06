@@ -1,0 +1,32 @@
+# USE AWS INGRESS CONTROLLER
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: { .Values.namespace.name }}
+  name: {{ .Values.deployment.frontend.ingress }}
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    #alb.ingress.kubernetes.io/scheme: internet-facing
+    #alb.ingress.kubernetes.io/target-type: ip
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: aeb35572355dd46c791f73fc33154b6c-83628553569f5bf5.elb.us-east-1.amazonaws.com
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: {{ .Values.deployment.frontend.service }}
+              port:
+                number: {{ .Values.deployment.frontend.port }}
+       
+        - path: /be
+          pathType: Prefix
+          backend:
+            service:
+              name: {{ .Values.deployment.backend.service }}
+              port:
+                number: {{ .Values.deployment.backend.port }}
+

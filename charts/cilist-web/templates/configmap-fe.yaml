@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.deployment.frontend.configmap }}
+  namespace: {{ .Values.namespace.name }}
+data:
+    #REACT_APP_BACKEND_URL: "cilist-be-svc.devops-musyaffadli.svc.cluster.local:5000"
+    #REACT_APP_BACKEND_URL: "cilist-be-svc:5000"
+    REACT_APP_BACKEND_URL: "http://ec2-3-226-252-74.compute-1.amazonaws.com:30100" 
