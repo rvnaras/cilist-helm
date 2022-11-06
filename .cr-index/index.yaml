@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  cilist-web:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-11-06T14:20:19.780779828+07:00"
+    description: A Helm chart for Kubernetes
+    digest: 44090cf342800d65c30a23d3e8e0c418efa544455f902ff256199e7f21e6361f
+    name: cilist-web
+    type: application
+    urls:
+    - https://github.com/rvnaras/cilist-helm/cilist-web-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-11-06T14:20:19.77969928+07:00"
